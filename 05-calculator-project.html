@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05 - Calculator</title>
+</head>
+<body>
+  <h2>Calculator</h2>
+  <p>
+    <button onclick="
+      console.log(calculation += '1');
+      ">1</button>
+
+
+      <button onclick="
+        console.log(calculation += '2');
+      ">2</button>
+
+
+      <button onclick="
+        console.log(calculation += '3');
+      ">3</button>
+
+
+      <button onclick="
+        console.log(calculation += ' + ');
+      ">+</button>
+  </p>
+
+  <p>
+    <button onclick="
+      console.log(calculation += '4');
+    ">4</button>
+
+    <button onclick="
+      console.log(calculation += '5');
+    ">5</button>
+
+    <button onclick="
+      console.log(calculation += '6');
+    ">6</button>
+
+    <button onclick="
+      console.log(calculation += ' - ');
+    ">-</button>
+  </p>
+
+  <p>
+    <button onclick="
+      console.log(calculation += '7');
+    ">1</button>
+
+    <button onclick="
+      console.log(calculation += '8');
+    ">2</button>
+
+    <button onclick="
+      console.log(calculation += '9');
+    ">3</button>
+
+    <button onclick="
+      console.log(calculation += ' * ');
+    ">*</button>
+  </p>
+
+  <p>
+    <button onclick="
+      console.log(calculation += '0');
+    ">0</button>
+
+    <button onclick="
+      console.log(calculation += '.');
+    ">.</button>
+
+    <!--Uses eval() to convert calculation string to actual math-->
+    <button onclick="
+      calculation = eval(calculation);
+      console.log(calculation);
+    ">=</button>
+
+    <button onclick="
+      console.log(calculation += ' / ');
+    ">/</button>
+  </p>
+  <button onclick="
+    calculation = '';
+    console.log('Cleared.');
+  ">Clear</button>
+  
+  <script>
+    let calculation = '';
+
+  </script>
+  
+</body>
+</html>

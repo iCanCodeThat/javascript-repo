@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>06 - Quantity</title>
+  <title>05 - Quantity</title>
 </head>
 <body>
 
@@ -20,6 +20,20 @@
     console.log(`Cart quantity: ${cartQuantity}`);
   ">Add to cart</button>
 
+  <!--Decrease the Quantity by 2-->
+  <button onclick="
+    //  cartQuantity = cartQuantity - 2; 
+    //  either of the two will work.
+    console.log(`Cart quantity: ${cartQuantity-=2}`);
+  ">-2</button>
+
+  <!--Decrease the Quantity by 3-->
+  <button onclick="
+    //  cartQuantity = cartQuantity - 3; 
+    //  either of the two will work.
+    console.log(`Cart quantity: ${cartQuantity-=3}`);
+  ">-3</button>
+
   <!--Increase the Quantity by 2-->
   <button onclick="
     //  cartQuantity = cartQuantity + 2; 
@@ -34,11 +48,29 @@
     console.log(`Cart quantity: ${cartQuantity+=3}`);
   ">+3</button>
 
+   <!--Increase the Quantity by 4-->
+   <button onclick="
+   //  cartQuantity = cartQuantity + 4; 
+   //  either of the two will work.
+   console.log(`Cart quantity: ${cartQuantity+=4}`);
+ ">+4</button>
+
+  <!--Increase the Quantity by 5-->
+  <button onclick="
+    //  cartQuantity = cartQuantity + 5; 
+    //  either of the two will work.
+    console.log(`Cart quantity: ${cartQuantity+=5}`);
+  ">+5</button>
+
   <!--Reset the value inside the cart quantity-->
   <button onclick="
     cartQuantity = 0;
     alert(`Cart was Reset`);
   ">Reset Cart</button>
+
+  <button onclick="
+    console.log(`Cart Quantity: ${cartQuantity-= 1}`);
+  ">Remove from cart</button>
 
   <script>
     /*
