@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>06 - Boolean and If Else Statement</title>
+</head>
+<body>
+
+  <script>
+
+    /****************BOOLEAN*****************/
+
+    //  - Booleans are another type of value
+    //  - There are only 2 boolean values:
+    //      - True and False
+
+    /**************Purpose of Boolean**********/
+
+    //  - a boolean value represents whether something is true or false.
+  
+    /**************Order of Operation**********/
+    //  1. (...)
+    //  2.  * /
+    //  3.  + -
+    //  4.  Comparison Operator
+
+
+    /**************IF-Statements**********/
+    //   -  lets us write multiple groups of code.
+    //   -  and then decides which code to run.
+
+
+
+    console.log(5 == '5');
+
+    console.log('------------------------------------');
+    // Will Run the code
+    if (false) {
+      console.log('Hello World');
+    } else {
+      console.log('else');
+    }
+
+    // Will not run the code.
+    /*
+      if (false) {
+        console.log('Hello World');
+      }
+    */
+
+    console.log('------------------------------------');
+    // Practical Example
+    //    - Will check if a person is old enough to drive.
+    
+    const age = 18;
+    
+    if(age >= 20){ //If condition is true. We will run the code below.
+      console.log('You are legal to drive');
+    } else if(age >= 16){
+      console.log('You are almost there');
+    } else {
+      console.log('You cannot drive');
+    }
+
+    
+    
+  </script>
+  
+</body>
+</html>
