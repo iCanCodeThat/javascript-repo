@@ -30,6 +30,15 @@
     //   -  lets us write multiple groups of code.
     //   -  and then decides which code to run.
 
+    //   - Special Features of If Statememt
+    //      - Scope
+    //        - limits where the variable exists.
+    //        - any variable ccreated inside the if(){}
+    //        - will only exist inside the if(){}.  
+    //        - we cannot use variables created inside if(){} outside the if(){}.
+    //        - scope helps us avoid naming conflicts.
+
+
 
 
     console.log(5 == '5');
@@ -63,8 +72,190 @@
       console.log('You cannot drive');
     }
 
+    console.log('------------------------------------');
+    console.log('---------Logical Operator-----------');
+
+    //  Logical Operator
+    //    - Let us combine boolean values
+
+    /*
+      AND && Operator
+        - if both true, will result to true
+        - else if one true and one false, will result to false.
+        - else both false, will result to false.
     
+    */
     
+    console.log(false && false);
+
+    //  generated number will be true.
+    //  both side is true
+    console.log(0.2 >= 0 && 0.2 <= 1/3); 
+
+
+    /*
+      OR || Operator
+        - Checks if atleast one side is true.
+        - If both side are true, will result to true.
+        - if one side is true, will result to true.
+        - if both side are false, will result to false.
+    */
+    console.log(true || false);
+
+
+    /*
+      NOT ! Operator
+        - only use one boolean value and flips it to the opposite value.
+        - ex. !true is false ; !false is true.
+    */
+    console.log(!false);
+    
+
+    console.log('------------------------------------');
+    console.log('----Truthy and Falsy Value----------');
+    /****************Truthy and Falsy Value*****************/
+  
+    //  - if statements dont just used boolean values.
+    //  - it can also use any type of values including string and numbers.
+    //  - we use truthy and falsy values as a shortcut into our codes.
+
+    //  Falsy Values
+    //  - false, 0, '', NaN, undefined, null
+    //  - NaN = will output if we do invalid math.
+    //      - ex. console.log('text' / 5);
+    //  - undefined = represents that something doesn't have a value
+    //      - ex. let variable1; const variable1 = undefined;
+    //  - null = 
+
+    //Ex.
+    //Truthy Values
+    if(5){ // 5 behaves just like true
+      console.log('Truthy');
+    }
+
+    //Falsy Values
+    if(0){ // 0 behaves just like false. It will not run the statement below.
+      console.log('Truthy');
+    }
+
+    //Shortcuts
+    //  If
+    //  cartQuantity = 5
+    //  cartQuantity > 0 => true
+    //  cartQuantity     => truthy
+
+    //  Else if
+    //  cartQuantity = 0
+    //  cartQuantity > 0 => false
+    //  cartQuantity     => falsy
+
+
+    const cartQuantity = 5;
+
+    if(cartQuantity > 0){
+      console.log('cart has products')
+    }
+
+    // Truthy and Falsy values to Logical Operators
+
+    //  0 is a falsy value
+    //  ! operator will flip it to true
+    console.log(!0);
+
+    console.log('------------------------------------');
+    console.log('-----Shortcuts for If-Statement-----');
+    /****************Shortcuts for If-Statementse*****************/
+
+    // Ternary Operator
+
+    //  - similar to if-statement
+    //  - first value is the condition. If it is truthy, the result is the value after the question mark.
+    //  - if it is falsy, the result is the value after the colon.
+    //  - we can save a ternary operator in a variable.
+    
+    /*
+      Shortcut is below
+        if (true){
+          'truthy';
+        } else {
+          'falsy'
+        }
+    */
+
+    true ? 'truthy' : 'falsy';
+
+    const result = true ? 'truthy' : 'falsy';
+    console.log(result);
+
+
+    // Guard Operator &&
+
+    //   - for example we have AND && Operator
+    //   - if false && value2
+    //      - operator stops early
+    //      - Doesn't need to run the code on the right.
+    //      - This is called 'Short Circuit Evaluation'.
+    //   - we can save the guard operator inside a variable.
+
+    //left side is falsy, the && operator stops early (Short Circuit Evaluation)
+    //doesn't run the code on the right.
+    false && console.log('hello');
+
+    //will stop early and output false
+    const message = false && 'hello';
+    console.log(message);
+
+    /*
+      Shortcut is above
+
+      let message;
+
+        if (condition){
+          message = 'hello';
+        }
+    */
+
+    //will not stop early and output hello
+    const messages = true && 'hello';
+    console.log(messages);
+
+    
+
+    //Default Operator ||
+
+    //  - similar to guard operator but uses OR ||.
+    //  - if true || value2
+    //    - The result will be true.
+    //    - stops early or Short Circuit Evaluation
+
+    //  left side is truthy
+    //  stops early
+    //  result the value on the left (EUR)
+    const currency = 'EUR' || 'USD';
+    console.log(currency);
+
+    /*
+      Shortcut is above
+      
+        let currency;
+
+        if(!condition) {
+          currency = 'USD';
+        }
+        
+    */          
+
+    //  left side is truthy
+    //  does not stop early or short circuit
+    //  will continue and the result is the value on the right (USD)
+    const currencies = undefined || 'USD';
+    console.log(currencies);
+
+    
+
+
+
+
   </script>
   
 </body>
