@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>07 - Functions</title>
+  </head>
+  <body>
+
+    <script>
+      /*************************FUNCTION**************************/
+      //  -   lets us reuse code.
+      //  -   Function can have more than one parameter
+
+      //  Return Statement
+      //  -   Lets us get a value out of the function
+      //  -   When we use a return statement, it ends the function immediately.
+
+      //  BEST PRACTICE
+      //  - Keep variables inside a scope (if we can).
+
+      //  Parameters
+      //  -   opposite of a return statement
+      //  -   parameter puts a value into a function
+      //  -   parameter works the same way as a variable.
+      //  -   we can set a default value for a parameter
+
+      function function1 (myname){
+       console.log(myname);
+      }
+      function1('Kester');
+      function1('Kane');
+
+      console.log('------------Parameters--------------------');
+      
+      // Lets create a function to calculate our tax
+
+    
+      function calculateTax(cost, taxes = 0.1 /*This is a default value*/){ //This function takes a parameter (number)
+        console.log(cost * taxes);
+      }
+
+      //  call the function to run the code.
+      //  Putting a value into the function like this, it is called "Passing a value into the function"
+      //  The value inside the function's parameter ex (2000, 0.1) is called "argument"  
+      calculateTax(2000, 0.1); 
+      calculateTax(1000);
+
+    </script>
+  </body>
+</html>

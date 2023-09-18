@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>07 - Rock Paper Scissors Game</title>
+  </head>
+  <body>
+    
+    <!--Title-->
+    <p>Rock Paper Scissors Game</p>
+
+    <!---------------------Rock Button----------------->
+    <button onclick="
+      playGame('rock');
+    ">Rock</button>
+
+    <!----------------------Paper Button------------------>
+    <button onclick="
+      playGame('paper');
+    ">Paper</button>
+      
+    <!---------------------Scissors Button---------------->
+    <button onclick="
+      //  This will save scissors into playerMove
+      //  We can use playerMove just like a variable
+      playGame('scissors');
+      ">Scissors</button>
+  
+    <script>
+      /*    Algorithm
+
+        When Clicking a button:
+
+          1. Computer randomly selects a move.
+          2. Compare the moves to get the result.
+          3. Display the result in a popup message
+      */
+      function playGame(playerMove){
+        const computerMove = pickComputerMove();  // we will call the function here for picking computer's move.
+
+        let result = '';
+
+        // we add another if statement to calculate the result if the player picks scissors
+        if(playerMove === 'scissors'){
+          if(computerMove === 'rock'){ 
+            result = 'Human Lose';
+          } else if(computerMove === 'paper'){
+            result = 'Human Wins';
+          } else if(computerMove === 'scissors'){
+            result = 'It is a Tie';
+          }
+        } else if(playerMove === 'paper'){  // we add another if statement to calculate the result if the player picks paper
+
+          if(computerMove === 'rock'){
+            result = 'Human Wins';
+          } else if(computerMove === 'paper'){
+            result = 'It is a Tie';
+          } else if(computerMove === 'scissors'){
+            result = 'Human Lose';
+          }
+        } else if(playerMove === 'rock'){ // we add another if statement to calculate the result if the player picks rock
+          if(computerMove === 'rock'){  
+            result = 'It is a Tie';
+          } else if(computerMove === 'paper'){  
+            result = 'Human Lose';
+          } else if (computerMove === 'scissors'){  
+            result = 'Human Wins';
+          }
+        }
+        
+        alert(`Human picked ${playerMove}, Computer picked ${computerMove}
+
+${result}`);
+
+      }
+
+      function pickComputerMove(){
+        let computerMove = ''; // there will be an error because this variable should be outside the scope. The next thing we could do is to return this variable.
+
+        const randomNum = Math.random();
+        
+        if(randomNum >= 0 && randomNum < 1/3){
+          computerMove = 'rock';
+        } else if(randomNum >= 1/3 && randomNum < 2/3){
+          computerMove = 'paper';
+        } else if(randomNum >= 2/3 && randomNum < 1){
+          computerMove = 'scissors';
+        }
+
+        return computerMove; // This will take whatever value is saved inside this variable and return it out of the function.
+      }
+    </script>
+  </body>
+</html>
