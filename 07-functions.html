@@ -26,11 +26,26 @@
       //  -   we can set a default value for a parameter
 
       function function1 (myname){
-       console.log(myname);
+       return myname;
       }
-      function1('Kester');
-      function1('Kane');
+      const myName = function1('Kester');
+      const hisName = function1('Aeron');
 
+      console.log(`My name is ${myName}, and my friend's name is ${hisName}`);
+
+      //Another example to use a function
+
+      let login = function (password) {
+        if(password === 'cisco123'){
+          return 'Successfully Logged In!';
+        } else {
+          return 'Password is incorrect';
+        }
+      }
+      let result = login('cisco123');
+      console.log(result);
+
+    
       console.log('------------Parameters--------------------');
       
       // Lets create a function to calculate our tax
