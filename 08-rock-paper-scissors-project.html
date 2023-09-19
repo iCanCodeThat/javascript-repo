@@ -29,9 +29,13 @@
 
     <!---------------------Reset Button---------------->
     <button onclick="
-      score.wins = 0;
-      score.losses = 0;
-      score.tie = 0;
+      
+        score.wins = 0;
+        score.losses = 0;
+        score.tie = 0;
+      
+      localStorage.removeItem('score');
+      
     ">Reset button</button>
   
     <!---------------------JAVASCRIPT---------------->
@@ -50,11 +54,48 @@
       //  We create the variable outside the function and a scope because eveytime we make a move, we need to update the score from last time.
       //  In order to save the score from last time, we need to keep the variable outside the function
       //  if the variable is inside the function, the function would create a new score everytime.
-      const score = {
+
+      /* 
+        const score = {
+          wins: 0,
+          losses: 0,
+          tie: 0
+        };
+      */
+
+      // we will use the score from localStorage instead of resetting the score everytime like above
+      //  when we load the page
+      //  we're going to load the score that we just save from localStorage
+
+      //const score = JSON.parse(localStorage.getItem('score'));
+      //let score = JSON.parse(localStorage.getItem('score')); //reassigning variable so we use let
+      
+      //  the shortcut
+      let score = JSON.parse(localStorage.getItem('score')) || {
         wins: 0,
         losses: 0,
         tie: 0
       };
+
+
+      //  if there is no score in the localStorage, we're gonna give it a default value to avoid an error
+      //  if the score is null or score = null
+      //  the !score below will flip it to true
+      /*
+        if(!score){
+        score = {
+          wins: 0,
+          losses: 0,
+          tie: 0
+        };
+      } 
+      */
+      
+      //  to get the string out of localStorage
+      //  when we 1st load the page, we're gonna get that value our of localStorage
+      // getItem() => gets a value out of localStorage
+        //console.log(JSON.parse(localStorage.getItem('score')));
+
 
       function playGame(playerMove){
         const computerMove = pickComputerMove();  // we will call the function here for picking computer's move.
@@ -96,6 +137,12 @@
         } else if(result === 'It is a Tie'){
           score.tie += 1;
         }
+
+        //  after we update the score, we're gonne save it to localStorage.
+        //  save a value inside a local storage
+        //  1st string is name => to access the value we save later
+        //  2nd is the value that we want to save in localStorage
+        localStorage.setItem('score', JSON.stringify(score));
 
         alert(`Human picked ${playerMove}, Computer picked ${computerMove}
 

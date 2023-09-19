@@ -10,7 +10,7 @@
       /***************************Object**********************/
 
       //  -   Another type of value.
-      //  -   Let us groups multiple values together
+      //  -   Let us groups multiple values together or groups related values together.
       //  -   Let us use multiple values together
       
       //  Property
@@ -42,6 +42,248 @@
       //  to remove a value from object
       delete product.newProduct;
       console.log(product);
+
+      console.log('----------------More Details about Object----------------');
+
+      //
+      const product2 = {
+        name: 'shirt',
+        ['delivery-time']: '1 day'  // Using Bracket Notation  we can add values to the object when we created.
+      };
+      console.log(product2);
+      console.log(product2.name); // Dot Notation
+
+      //  Bracket Notation
+      //  -   same as Dot Notation
+      //  -   gets the value associated with the name property.
+      //  -   lets us use properties that don't work with dot notation
+
+      //  When do We use Bracket Notation?
+      //  -   when there is a property that doesn't work with the dot notation. (ex. product2.delivery-time);
+      //  - between the brackets we don't just have to use string. we can use a variable, calculation, or anything that result in a value.
+
+      //  Which one should we use (Dot or Bracket)?
+      //  - Use dot notation by default => easier to read
+      //  - For properties that don't work, use bracket notation
+
+      console.log(product2['name']);
+      console.log(product2['delivery-time']);
+
+
+      //  Inside an object we can save any type of value (it includes number, string, boolean, and other object)
+
+      //  Nested Object
+      //  -   This is called a nested object.
+      //  -   An object inside an object.
+      //  -   We can use nested object to make our values more organized
+
+      
+      //  Function inside an Object
+      //  -   we can add function inside an object.
+      //  -   because function is another type of value.
+
+      //  Method
+      //  -   saving a function inside an object.
+      //  -   ex. Math.random() ; console.log()
+
+      
+      const product3 = {
+        name: 'basketball',
+        rating: {
+          stars: 4.5,
+          count: 87
+        },
+        fun: function function1(){  //function inside an object
+          console.log('function inside object')
+        }
+      };
+
+      //  to access values inside the inner object
+      console.log(product3.rating.stars);
+
+      //  to access function inside an object
+      product3.fun();
+
+      console.log('----------------Built In Object----------------');
+
+      //************************ jSON *********************/
+      //  - Javascript Object Notation
+      //  - a syntax
+      //  - similar syntax for JavaScript Object
+      //  - but has less features
+      //  - JSON does not support functions
+
+      //  Why we use JSON?
+      //  -   JSOn can be understood by any programming language
+      //  -   More universal than JS object
+      
+      //  We use JSON...
+      //  -   When we send data between computers
+      //  -   when we store data
+
+
+      //  Built-in JSON object
+      //  -   let us convert JS object to JSON
+
+      const product4 = {
+        name: 'basketball',
+        rating: {
+          stars: 4.5,
+          count: 87
+        },
+        fun: function function1(){  //function inside an object
+          console.log('function inside object')
+        }
+      };
+
+      //******************  jSON Strinigy***************/
+      //  JS Object convert to JSON
+      //  Stringify is the method of JSON object
+      //  -   stringify actually results in string
+      console.log(JSON.stringify(product4));
+
+      /****************** JSON Parse ******************/
+      //  JSON convert to JS Object
+      //  JSON.parse()
+      const jsonString = JSON.stringify(product4);
+      console.log(JSON.parse(jsonString));
+
+      /****************** localStorage ******************/
+      //  localStorage
+      //  -   used to save values more permanently
+      //  -   it only support strings
+      
+      //  Things to know about the variable
+      //  -   variables are temporary
+      //  -   if we refresh / close the page, all the variables are deleted. 
+
+      //  NULL vs UNDEFINED
+      //  -   null => intentionally want something to be empty
+      //  -   
+
+      //************************ Auto-Boxing *********************/
+      //  -   Other values also have properties and method, not an object only
+      //  -   JS automatically wraps the string in special object.
+      //  -   This object has a property of length and the method toUpperCase()
+      //  -   it also works with other types values like numbers and boolean
+      //  -   doesn't work in null or undefined
+
+      //  String properties
+      //  - length => tells us how many character or letters are in the string.
+      console.log('hello'.length);
+
+      //  - toUpperCase() => gives us a copy of the string  with all letters CAPITALIZE
+      console.log('hello'.toUpperCase());
+
+      //************************OBJECTS ARE REFERENCES*********************/
+      //  -   When we create an object, the actual value is created somewhere in the computer's memory.
+      //  -   The variable actually gets a reference that points to that location in the computer's memory.
+      //  -   Its like a shortcut to your computer.
+      //  -   Shortcut => it points to where the actual file or folder is
+      //  -   it makes the language more efficient
+      //  -   if we have a really big object, it is not good to copy the enire object over and over again.
+      //  -   that is why js just copy the refence which is much faster and it is called "Copy by Reference"
+
+      const object1 = { //object1 is a reference; the ovject is somewhere else in the computer's memory
+        message: 'hello'  //  the object
+      };
+
+      //  object2 doesn't make the copy of the object1
+      //  it just make the copy of the reference that points to the object
+      //  object2 has the same reference as the object1;
+      const object2 = object1;
+      console.log(object2);
+
+      //  Interesting Behavior of References
+      //  we are going to change the property message in the object above
+      //  We we're able to change the message property even though we created the object1 to const (constant variable)
+      //  Because object1 contain a reference that points to the object.
+      //  Const prevents us from changing the referece from the variable but it doesn't prevent us from reaching into the reference and changing the object that is pointing to.
+      object1.message = 'Good Job';
+      console.log(object1);
+      //  the message property was also change even though we only change object1
+      console.log(object2);
+
+
+      //  We can't compare objects directly
+      const object3 = {
+        message: 'Good Job'
+      };
+      //  will result to false
+      //  because objects are references, so object3 also contains a references.
+      //  code below compares the references, not the values inside.
+      //  object3 is a different reference than object1. result to false
+      console.log(object3 === object1); 
+
+
+      //  will result to true
+      //  object2 has the same reference as object1. Points to the same object in the computer's memory
+      console.log(object2 === object1);
+
+
+      //********************* SHORTCUTS FOR OBJECTS ********************/
+      
+      //  Destructuring
+      //  -   An easier way to take properties out of an object.
+
+      const object4 = {
+        message: 'Good Job',
+        price: 799
+      };
+
+      //const message = object4.message;
+
+      //  if the variable name and property name are the same
+      //  this is the shortcut from the code above.
+      //  the code (shortcut) is called "destructuring"
+      //  this will take the message property out of object4 and save it in a variable called message
+
+      /*
+        const { message } = object4;
+        console.log(message);
+      */
+      
+
+      //  we can use destructuring shortcut for multiple properties
+      //  this will take the price property out of object4 and save it in a variable called price.
+      const { message, price } = object4;
+      console.log(message);
+      console.log(price);
+
+
+
+      //  Shorthand Property
+
+      //  the code does take whatever inside of the message variable and substitute it into this code.
+      const object5 = {
+        message //  if property and variable name are the same, we can type it once
+        //message: message
+      };
+      //  this object will have a property called message and the value is whatever inside the message variable which is 'Good Job'.
+      console.log(object5);
+
+      
+
+      //  Shorthand Method
+
+      const object6 = {
+        message,
+        /*
+            method: function function1(){
+            console.log('method');
+          }
+        */
+
+        //  this code does the same thing as the code above
+        method(){
+          console.log('method');
+        }
+      };
+      //  this will run the code in the function and display method in the console
+      object6.method();
+
+      
+      
     </script>
   </body>
 </html>
