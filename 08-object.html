@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>08 - Object</title>
+  </head>
+  <body>
+    <script>
+      /***************************Object**********************/
+
+      //  -   Another type of value.
+      //  -   Let us groups multiple values together
+      //  -   Let us use multiple values together
+      
+      //  Property
+      //  -   the code on the left (ex. name:) is called property.
+      //  -   using property we can access specific value in the object.
+
+      //  Why we use Object?
+      //  -   it makes our code more organized
+
+      const product = {
+        name: 'socks',  // this is called "Property-Value Pair"
+        price: 1090
+      };
+      console.log(product);
+
+      //  to access specific value inside the object
+      //  It is called "Dot Notation"
+      console.log(product.name); 
+
+      // change value
+      product.name = 'paper';
+      console.log(product);
+      console.log(product.name);
+
+      //  We can add a value to an object by typing a property that doesn't exist
+      product.newProduct = true;
+      console.log(product);
+
+      //  to remove a value from object
+      delete product.newProduct;
+      console.log(product);
+    </script>
+  </body>
+</html>
