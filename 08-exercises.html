@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>08 - Exercises</title>
+  </head>
+  <body>
+    <script>
+      /*************Exercises 8 a,b,c,d, e**********/
+      const product1 = {
+        name: 'basketball',
+        price: 2095,
+        ['delivery-time']: '3 days' 
+      };
+
+      const product2 = {
+        name: 'volleyball',
+        price: 2095,
+        ['delivery-time']: '3 days' 
+      };
+      //console.log(amazonProduct);
+
+      //amazonProduct.price += 500;
+      //console.log(amazonProduct);
+
+      function comparePrice(product1, product2){
+        if(product1.price < product2.price){
+          return product1;
+        } else {
+          return product2;
+        }
+      }
+      console.log(comparePrice(product1, product2));
+
+
+      function isSameProduct(product1, product2){
+        if(product1.price === product2.price && product1.name === product2.name){
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+      console.log(isSameProduct(product1, product2));
+
+
+      /*************Exercises 8 f,g,h **********/
+      console.log('Good Morning'.toLowerCase());
+
+      console.log('test'.repeat(2));
+
+    </script>
+  </body>
+</html>
