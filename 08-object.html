@@ -36,7 +36,7 @@
       console.log(product.name);
 
       //  We can add a value to an object by typing a property that doesn't exist
-      product.newProduct = true;
+      product.newProduct = true;  // new property in product object
       console.log(product);
 
       //  to remove a value from object
@@ -181,7 +181,7 @@
       //  -   Its like a shortcut to your computer.
       //  -   Shortcut => it points to where the actual file or folder is
       //  -   it makes the language more efficient
-      //  -   if we have a really big object, it is not good to copy the enire object over and over again.
+      //  -   if we have a really big object, it is not good to copy the entire object over and over again.
       //  -   that is why js just copy the refence which is much faster and it is called "Copy by Reference"
 
       const object1 = { //object1 is a reference; the object is somewhere else in the computer's memory
@@ -198,7 +198,7 @@
       //  we are going to change the property message in the object above
       //  We we're able to change the message property even though we created the object1 to const (constant variable)
       //  Because object1 contain a reference that points to the object.
-      //  Const prevents us from changing the referece from the variable but it doesn't prevent us from reaching into the reference and changing the object that is pointing to.
+      //  Const prevents us from changing the reference from the variable but it doesn't prevent us from reaching into the reference and changing the object that is pointing to.
       object1.message = 'Good Job';
       console.log(object1);
       //  the message property was also change even though we only change object1
