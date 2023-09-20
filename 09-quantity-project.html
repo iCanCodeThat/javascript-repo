@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>07 - Quantity</title>
+</head>
+<body>
+
+  <!--This will display the quantity-->
+  <button onclick="
+    cartQuantityDom();
+  ">Show Quantity</button>
+
+  <!--This will display the quantity-->
+  <button onclick="
+    updateCartQuantity(1);
+
+    
+  ">Add to cart</button>
+
+  <!--Decrease the Quantity by 2-->
+  <button onclick="
+    updateCartQuantity(-2);
+    
+  ">-2</button>
+
+  <!--Decrease the Quantity by 3-->
+  <button onclick="
+    updateCartQuantity(-3);
+  ">-3</button>
+
+  <!--Increase the Quantity by 2-->
+  <button onclick="
+    updateCartQuantity(2);
+  ">+2</button>
+
+  <!--Increase the Quantity by 3-->
+  <button onclick="
+    updateCartQuantity(3);
+    
+  ">+3</button>
+
+   <!--Increase the Quantity by 4-->
+   <button onclick="
+   updateCartQuantity(4);
+ ">+4</button>
+
+  <!--Increase the Quantity by 5-->
+  <button onclick="
+    updateCartQuantity(5);
+  ">+5</button>
+
+  <!--Reset the value inside the cart quantity-->
+  <button onclick="
+    cartQuantity = 0;
+    cartQuantityDom();
+  ">Reset Cart</button>
+
+  <button onclick="
+    updateCartQuantity(-1);
+  ">Remove from cart</button>
+
+  <p class="js-cart-quantity"></p>
+
+  <script>
+    /*
+
+      IMPORTANR NOTES!!!
+
+      Naming Convention
+
+      camelCase   = cartQuantity (use for JS)
+      PascalCase  = CartQuantity (can also use for JS)
+      kebab-case  = cart-quantity (can only use for HTML)
+      snake_case  = cart_quantity (can use to other languages)
+
+      3 Ways to create variables
+
+        - let (we can change value)
+        - const (constant - we cannot change the value later)
+            - const makes our code safer and easier to understand than let
+            - Best practice to use const by default
+        - var (not used anymore)  
+    */
+
+    //  create a variable with 0 value to save the quantity of the cart.
+    //  This is a global or universal variable because we can access it everywhere.
+    // idk what the best term but its like a global variable
+    let cartQuantity = 0
+
+      cartQuantityDom();
+
+    function updateCartQuantity(value){
+
+      /*  Without return; we use else if
+  
+        if(cartQuantity + value > 10){
+          alert('The cart is full');
+        } else if(cartQuantity + value < 0){
+          alert('The cart is empty');
+        } else {
+          cartQuantity += value;
+          console.log(`Cart Quantity: ${cartQuantity}`);
+        }
+    
+      */
+      
+      // with return; we can remove else if
+      if(cartQuantity + value > 10){
+        alert('The cart is full');
+        return;
+      } 
+      
+      if(cartQuantity + value < 0){
+        alert('The cart is empty');
+        return;
+      } 
+        cartQuantity += value;
+        cartQuantityDom();
+    }
+
+    function cartQuantityDom(){
+        document.querySelector('.js-cart-quantity')
+        .innerHTML = (`Cart Quantity: ${cartQuantity}`); 
+    }
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>09 - Exercises</title>
+  </head>
+  <body>
+    <!---------------- Exercise 9 a,b,c ------------------------->
+    <button class="js-head-button" onclick="
+     document.querySelector('.js-result')
+      .innerHTML = 'You chose: heads';
+    ">heads</button>
+    <button class="js-tail-button" onclick="
+      document.querySelector('.js-result')
+      .innerHTML = 'You chose: tails';
+    ">tails</button>
+    <p class="js-result"></p>
+
+    <!---------------- Exercise 9 d,e,f ------------------------->
+    <input type="text" class="js-input" placeholder="Type your name" onkeydown="
+      handleNameKeyDown(event);
+    ">
+    <button onclick="
+      nameElement();
+    ">Submit</button>
+    <p class="js-name-result"></p><br>
+
+    <!---------------- Exercise 9 g ------------------------->
+
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders under $40 = +$10 shipping.</p>
+    <p>Orders over $40 = FREE shipping.</p>
+
+    <input type="text" class="js-calculate-input" name="" id="" placeholder="Cost of order" onkeydown="
+      //console.log(event);
+      //console.log(event.key);
+      handleCostKeyDown(event);
+      
+    ">
+
+    <button class="js-button-calculate" onclick="
+      calculateTotal();
+    ">Calculate</button>
+
+    <p class="js-cost-result"></p><br>
+
+
+    <!---------------- Exercise 9 h ------------------------->
+    <p>OnKeyUp Attribute</p>
+    <input type="text" class="js-input-new"  name="" id="" onkeyup="
+        onKeyUpElem();
+    ">
+    <p class="js-onkeyup"></p>
+    
+
+    <script>
+
+      /**********************  Exercise 9 d,e,f  *********************/
+      
+      function nameElement(){
+        const inputElement = document.querySelector('.js-input');
+
+        document.querySelector('.js-name-result')
+          .innerHTML = `Your name is: ${inputElement.value}`;
+        
+      }
+
+      function handleNameKeyDown(event){
+
+        if(event.key === 'Enter'){
+          return nameElement();
+        }
+      }
+
+
+      /********************* Exercise 9 g *********************/
+      function calculateTotal(){
+        
+        const inputElement = document.querySelector('.js-calculate-input');
+
+        let cost = Number(inputElement.value);
+       
+
+        //  checks if the amount is less than $40, we will add $10
+        if(cost < 40){
+          cost += 10; //when we change a variable, we have to switch from const to let.
+          
+        }
+
+        document.querySelector('.js-cost-result')
+          .innerHTML = `$${cost.toFixed(2)}`;
+
+      }
+
+      //  We create a function to make our code cleaner for the onkeydown
+      //  event does not exist inside the function
+      //  we need to put the event inside the function using parameters
+      function handleCostKeyDown(event){
+        if(event.key === 'Enter'){
+          calculateTotal();
+        }
+      }
+
+
+      //Exercise 9h
+
+      function onKeyUpElem(){
+        const onkeyElem = document.querySelector('.js-input-new');
+          document.querySelector('.js-onkeyup')
+            .innerHTML = onkeyElem.value;
+      }
+    </script>
+  </body>
+</html>
