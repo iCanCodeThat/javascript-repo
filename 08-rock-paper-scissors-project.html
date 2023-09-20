@@ -35,12 +35,13 @@
         score.tie = 0;
       
       localStorage.removeItem('score');
+      alert('Score has been Reset');
       
     ">Reset button</button>
 
     <button onclick="
       alert(`Current Score
-      
+
 Wins: ${score.wins} | Losses: ${score.losses} | Tie: ${score.tie}`);
     ">Show Score</button>
   
