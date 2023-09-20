@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>09 Document Object Model (DOM)</title>
+  </head>
+  <body>
+    <button>hello</button>
+    <!--Class Attributes = adds a label-->
+    <button class="js-second-button">Second Button</button>
+
+    <script>
+      /******************DOM*****************/
+
+      //  -   Another built-in object called 'document object'
+      //  -   Document Object is linked to the webpage
+      //  -   Document Object represents / models the webpage.
+      //  -   DOM combines js and html together.
+      //  -   DOM combines JS and HTML together, it gives js full control of the webpage
+
+      //  Note
+      //  -   We can have HTML elements inside Javascript
+      //  -   When HTML element is inside js, the HTML elements is converted into a js object
+      //  -   method => function that is saved inside an object
+      //  -   Every HTML elements has a property .innerHTML
+
+      //  removes everything on the page and replace it with the texr Hello
+      //  this object works the same way as any other object
+      
+      /*
+        //
+        console.log(document.body); 
+
+        //  gives us the title above the webpage
+        document.title = 'Changed';
+
+        //  body element is an object inside javascript
+        console.log(typeof document.body);
+        
+        //  InnerHTML property controls all the html inside the body.
+        console.log(document.body.innerHTML);
+        document.body.innerHTML = '<button>Good Job</button>';
+      */
+      
+      
+      //  document also has methods
+      //  document.queryselector
+      //  -   lets us get any element from the page and put it inside js.
+      //  ex. document.querySelector('button');
+
+      //  if we change the HTML property, it will change the HTML inside the button.
+      console.log(document.querySelector('button')
+        .innerHTML);
+
+      document.querySelector('button')
+        .innerHTML = 'Changed';
+      
+      const buttonElement = document.querySelector('.js-second-button');
+      console.log(buttonElement);
+    </script>
+  </body>
+</html>
