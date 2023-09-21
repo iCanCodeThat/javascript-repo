@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>10 DOM Project</title>
+  </head>
+    <style>
+      body {
+        font-family: Arial;
+      }
+
+      .css-subscribe-button {
+        background-color: black;
+        color: white;
+        font-weight: bold;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+      .css-is-subscribed {
+        background-color: rgb(225, 225, 225);
+        color: black;
+        font-weight: bold;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+
+      .css-calculate-input {
+        padding: 10px;
+        font-size: 15px;
+      }
+      .css-button-calculate {
+        padding: 10px 15px;
+        border: none;
+        background-color: green;
+        color: white;
+        font-size: 15px;
+        cursor: pointer;
+      }
+    </style>
+  <body>
+    <p>Youtube Subscribe Button</p>
+
+    <!--Project 1-->
+    <button class="js-subscribe-button css-subscribe-button" 
+    onclick="
+      subscribe();
+    ">Subscribe</button>
+
+    <!--Project 2-->
+    <br><br>
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders under $40 = +$10 shipping.</p>
+    <p>Orders over $40 = FREE shipping.</p>
+
+    <!--
+      OnKeyDown Attribute
+
+      -   onkeydown attribute that runs js when we press a keydown on our keyboard
+      -   clicks, keydowns are known as "events"
+      -   onclick, onkeydown are known as "event listeners"
+
+      Event Listener
+
+      onclick       = click
+      onkeydown     = key press
+      onscroll      = scrolling
+      onmouseenter  = hovering over
+      onmouseleave  = stop hovering over
+      ... and many more
+    -->
+    <input type="text" class="js-calculate-input css-calculate-input" name="" id="" placeholder="Cost of order" onkeydown="
+      //console.log(event);
+      //console.log(event.key);
+      handleCostKeyDown(event);
+      
+    ">
+
+    <button class="js-button-calculate css-button-calculate" onclick="
+      calculateTotal();
+    ">Calculate</button>
+
+    <p class="js-result"></p>
+
+
+    <script>
+      
+      /*****************  PROJECT 1 **************8*****/
+      //  You can write the code inside onclick however, we can also use function to makes our code cleaner.
+      function subscribe(){
+        //  we'll save the button to a variable so we can use it later.
+        const subscribeElem = document.querySelector('.js-subscribe-button');
+      
+        //  if the variable = to the text inside of the button. We will change its innerHTML to Subscribed.
+        /*
+          if(subscribeElem.innerHTML === 'Subscribe'){
+            subscribeElem.innerHTML = 'Subscribed';
+          } else {
+            //  Otherwise, lets change it back to Subscribe
+            subscribeElem.innerHTML = 'Subscribe';
+          }
+        
+        */
+        
+        //  to get the text specifically inside button. We can use innerText
+
+        //  ClassList
+        //  -   gives us control of the class attribute
+        //  -   it is an object, it has properties and methods we can use
+        if(subscribeElem.innerText === 'Subscribe'){
+          subscribeElem.innerText = 'Subscribed';
+          subscribeElem.classList.add('css-is-subscribed');
+        } else {
+          //  Otherwise, lets change it back to Subscribe
+          subscribeElem.innerText = 'Subscribe';
+          subscribeElem.classList.remove('css-is-subscribed');
+        }
+      }
+
+      
+      
+
+
+      /**************** PROJECT 2 *******************/
+      function calculateTotal(){
+        
+        const inputElement = document.querySelector('.js-calculate-input');
+
+        //  .value to get the text inside input
+        //  const cost = Number(inputElement.value);
+        //  using the built in function Number() => it takes whatever is between the brackets and manually convert it to number.
+
+        //  Note
+        //  -   Whenever we get a value from the DOM, the value will be a string
+        //  String() we can also this built-in function to convert a value into a string. 
+        //  -   if a string only contains a number, and we use - * / it will be comverted into a number just like an example below:
+        //  -    String(25);
+        //  -    console.log('25' - 5);
+        //  -    console.log('25' + 5) =< convert 5 into string and combine it together to become 255.
+
+
+        let cost = Number(inputElement.value);
+       
+
+        //  checks if the amount is less than $40, we will add $10
+        if(cost < 40){
+          cost += 10; //when we change a variable, we have to switch from const to let.
+          
+        }
+
+        document.querySelector('.js-result')
+          .innerHTML = `$${cost}`;
+
+      }
+
+      //  We create a function to make our code cleaner for the onkeydown
+      //  event does not exist inside the function
+      //  we need to put the event inside the function using parameters
+      function handleCostKeyDown(event){
+        if(event.key === 'Enter'){
+          calculateTotal();
+        }
+      }
+
+
+      //  WINDOW Object vs Document Object
+      //  -   window object represent the browser
+      //  -   document object represent the webpage
+      //  -   everything inside the browser is inside the window object
+      //  -   we dont have to type "window" at the front
+      //  -   we can just type document and console and js will automatically add window. at the front.
+
+      console.log(window.document);
+      window.console.log('Window'); //same as console.log
+      //window.alert('Hello'); 
+
+      
+    </script>
+  </body>
+</html>
