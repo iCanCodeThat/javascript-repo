@@ -108,12 +108,14 @@
       
       // with return; we can remove else if
       if(cartQuantity + value > 10){
-        alert('The cart is full');
+        document.querySelector('.js-cart-quantity')
+          .innerHTML = 'Cart Quantity:  The cart is full';
         return;
       } 
       
       if(cartQuantity + value < 0){
-        alert('The cart is empty');
+        document.querySelector('.js-cart-quantity')
+          .innerHTML = 'Cart Quantity:  The cart is empty';
         return;
       } 
         cartQuantity += value;
