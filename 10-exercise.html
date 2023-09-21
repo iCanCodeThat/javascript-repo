@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>10 Exercises</title>
+    <style>
+      /***************** Exercise 10 a,b,c *********************/
+      .css-my-cart {
+        background-color: rgb(255, 230, 0);
+        border: none;
+        font-size: 15px;
+        padding: 10px 50px;
+        border-radius: 20px;
+      }
+      .css-request {
+        background-color: black;
+        color: white;
+        font-size: 15px;
+        padding: 10px 15px;
+        border-style: solid;
+        border-radius: 5px;
+      }
+      .css-sched {
+        background-color: rgb(226, 226, 226);
+        color: black;
+        font-size: 15px;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+      }
+
+       /***************** Exercise 10 d,e,f *********************/
+      
+      .toggled {
+        background-color: rgb(226, 226, 226);
+        color: black;
+        font-size: 15px;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .is-toggled {  
+        background-color: black;
+        color: white;
+        font-size: 15px;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer; 
+      }
+    </style>
+  </head>
+  <body>
+    <!-------------------- Exercise 10 a,b,c ----------------------->
+    <button class="css-my-cart">Add to Cart</button>
+    <button class="css-request">Request now</button>
+    <button class="css-sched">Schedule for later</button><br><br>
+    <button class="js-button" onclick="
+      const test = document.querySelector('.js-button');
+
+      if(test.classList.contains('js-button')){
+        console.log(test.classList.contains('js-button'));
+      }
+    ">Test</button> <br><br>
+
+    <!-------------------- Exercise 10 d,e,f ----------------------->
+    <button class="toggled js-toggled-gaming" onclick="
+      clicklableButtonElement('.js-toggled-gaming');
+    ">Gaming</button>
+    <button class="toggled js-toggled-music" onclick="
+      clicklableButtonElement('.js-toggled-music');
+    ">Music</button>
+    <button class="toggled js-toggled-tech" onclick="
+      clicklableButtonElement('.js-toggled-tech');
+    ">Tech</button>
+
+    <script>
+
+      function clicklableButtonElement(selector){
+        const buttons = document.querySelector(selector);
+        
+        if(!buttons.classList.contains('is-toggled')){
+          //call function
+          offButton();
+          //if there are other buttons with OFF is-toggled
+          //  turn button ON
+          buttons.classList.add('is-toggled');
+          
+        } else {
+          buttons.classList.remove('is-toggled');
+          
+         
+        }
+      }
+
+      //  check if theres already a button ON and turn it OFF
+      function offButton(){
+        const prevButton = document.querySelector('.is-toggled');
+        if(prevButton) {
+          prevButton.classList.remove('is-toggled');
+        }
+      }
+      
+    </script>
+  </body>
+</html>

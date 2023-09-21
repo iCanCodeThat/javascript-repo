@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>08 - Calculator</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial;
+      
+    }
+    h2 {
+      font-size: 30px;
+    }
+    .css-result {
+      font-size: 50px;
+      margin: 0;
+    }
+
+    .css-number {
+      background-color: rgb(51, 51, 51);
+      color: white;
+      border: none;
+      padding-top: 16px;
+      padding-bottom: 16px;
+      padding-left: 24px;
+      padding-right: 24px;
+      border-radius: 50px;
+      border-radius: 80px;
+      font-size: 25px;
+      margin-right: 5px;
+    }
+    .css-operator {
+      background-color: rgb(255, 160, 27);
+      color: white;
+      border: none;
+      padding-top: 16px;
+      padding-bottom: 16px;
+      padding-left: 25px;
+      padding-right: 25px;
+      border-radius: 50px;
+      font-size: 25px;
+      margin-left: 5px;
+    }
+    .division {
+      padding-left: 30x;
+      padding-right: 28px;
+    }
+    .period {
+      padding-left: 28px;
+      padding-right: 28px;
+    }
+    .addition {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    .clear {
+      font-size: 15px;
+      background-color: rgb(51, 51, 51);
+      color: white;
+      border: none;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      padding-left: 15px;
+      padding-right: 15px;
+      border-radius: 50px;
+      border-radius: 80px;
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+  
+  <p class="js-calculator-result css-result"></p>
+  <p>
+    <button class="css-number" onclick="
+      updateCalculation('1');
+    ">1</button>
+
+
+    <button class="css-number" onclick="
+      updateCalculation('2');
+    ">2</button>
+
+
+    <button class="css-number" onclick="
+      updateCalculation('3');
+    ">3</button>
+
+
+    <button class="css-operator addition" onclick="
+      updateCalculation(' + ');
+    ">+</button>
+  </p>
+
+  <p>
+    <button class="css-number" onclick="
+      updateCalculation('4');
+    ">4</button>
+
+    <button class="css-number" onclick="
+      updateCalculation('5');
+    ">5</button>
+
+    <button class="css-number" onclick="
+      updateCalculation('6');
+    ">6</button>
+
+    <button class="css-operator" onclick="
+      updateCalculation(' - ');
+    ">-</button>
+  </p>
+
+  <p>
+    <button class="css-number" onclick="
+      updateCalculation('7');
+    ">7</button>
+
+    <button class="css-number" onclick="
+      updateCalculation('8');
+    ">8</button>
+
+    <button class="css-number" onclick="
+      updateCalculation('9');
+    ">9</button>
+
+    <button class="css-operator" onclick="
+      updateCalculation(' * ');
+    ">*</button>
+  </p>
+
+  <p>
+    <button class="css-number" onclick="
+      updateCalculation('0');
+    ">0</button>
+
+    <button class="css-number period" onclick="
+      updateCalculation('.');
+    ">.</button>
+
+    <!--Uses eval() to convert calculation string to actual math-->
+    <button class="css-number" onclick="
+      calculation = eval(calculation);
+      calculatorElem()
+      localStorage.setItem('calculation', calculation);
+    ">=</button>
+
+    <button class="css-operator division" onclick="
+      updateCalculation(' / ');
+    ">/</button>
+  </p>
+  <button class="clear" onclick="
+    calculation = '';
+    calculatorElem();
+    localStorage.removeItem('calculation');
+  ">Clear</button>
+  
+  <script>
+    let calculation = localStorage.getItem('calculation') || '';  //  Default Operator
+    document.querySelector('.js-calculator-result')
+    .innerHTML = calculation;
+      
+    function updateCalculation(stringNum){
+      
+      if(calculation += stringNum){
+        calculatorElem();
+      }
+      localStorage.setItem('calculation', calculation);
+
+    }
+    function calculatorElem(){
+      document.querySelector('.js-calculator-result')
+        .innerHTML = calculation;
+    }
+    
+
+  </script>
+  
+</body>
+</html>

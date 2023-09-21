@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10-Amaxon Shipping Exericises</title>
+  <style>
+    body {
+      font-family: Arial;
+    }
+    .css-calculate-input {
+      padding: 10px;
+      font-size: 15px;
+    }
+    .css-button-calculate {
+      padding: 10px 15px;
+      border: none;
+      background-color: green;
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+    }
+    .css-error{
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <!--Project 2-->
+
+  <p>Amazon Shipping Calculator</p>
+  <p>Orders under $40 = +$10 shipping.</p>
+  <p>Orders over $40 = FREE shipping.</p>
+
+  <!--
+    OnKeyDown Attribute
+
+    -   onkeydown attribute that runs js when we press a keydown on our keyboard
+    -   clicks, keydowns are known as "events"
+    -   onclick, onkeydown are known as "event listeners"
+
+    Event Listener
+
+    onclick       = click
+    onkeydown     = key press
+    onscroll      = scrolling
+    onmouseenter  = hovering over
+    onmouseleave  = stop hovering over
+    ... and many more
+  -->
+  <input type="text" class="js-calculate-input css-calculate-input" name="" id="" placeholder="Cost of order" onkeydown="
+    //console.log(event);
+    //console.log(event.key);
+    handleCostKeyDown(event);
+    
+  ">
+
+  <button class="js-button-calculate css-button-calculate" onclick="
+    calculateTotal();
+  ">Calculate</button>
+
+  <p class="js-result"></p>
+  <p class="css-error js-error"></p>
+
+  <script>
+    /**************** PROJECT 2 *******************/
+    function calculateTotal(){
+        
+      const inputElement = document.querySelector('.js-calculate-input');
+
+      //  .value to get the text inside input
+      //  const cost = Number(inputElement.value);
+      //  using the built in function Number() => it takes whatever is between the brackets and manually convert it to number.
+
+      //  Note
+      //  -   Whenever we get a value from the DOM, the value will be a string
+      //  String() we can also this built-in function to convert a value into a string. 
+      //  -   if a string only contains a number, and we use - * / it will be comverted into a number just like an example below:
+      //  -    String(25);
+      //  -    console.log('25' - 5);
+      //  -    console.log('25' + 5) =< convert 5 into string and combine it together to become 255.
+
+
+      let cost = Number(inputElement.value);
+
+      //reset back to 0 or blank
+      document.querySelector('.js-error')
+          .innerHTML = ' ';
+
+      document.querySelector('.js-result')
+          .innerHTML = '';
+  
+
+      if(cost <0){
+        document.querySelector('.js-error')
+          .innerHTML = 'Error';
+          return;
+      }
+
+      //  checks if the amount is less than $40, we will add $10
+      if(cost < 40){
+        cost += 10; //when we change a variable, we have to switch from const to let. 
+      }
+
+      document.querySelector('.js-result')
+        .innerHTML = `$${cost}`;
+
+      
+
+    }
+
+    //  We create a function to make our code cleaner for the onkeydown
+    //  event does not exist inside the function
+    //  we need to put the event inside the function using parameters
+    function handleCostKeyDown(event){
+      if(event.key === 'Enter'){
+        calculateTotal();
+      }
+    }
+
+
+    //  WINDOW Object vs Document Object
+    //  -   window object represent the browser
+    //  -   document object represent the webpage
+    //  -   everything inside the browser is inside the window object
+    //  -   we dont have to type "window" at the front
+    //  -   we can just type document and console and js will automatically add window. at the front.
+
+    console.log(window.document);
+    window.console.log('Window'); //same as console.log
+    //window.alert('Hello'); 
+
+  </script>
+
+</body>
+</html>
