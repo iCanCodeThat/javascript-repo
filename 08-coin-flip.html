@@ -16,7 +16,8 @@
   <button onclick="
     score.wins = 0;
     score.losses = 0;
-    localStorage.removeItem('score')
+    localStorage.removeItem('score');
+    console.log(`wins: ${score.wins} | losses: ${score.losses}`);
   ">Reset Score</button>
   
   <script>
@@ -28,7 +29,7 @@
       losses: 0
     };
 
-    
+    console.log(`wins: ${score.wins} | losses: ${score.losses}`);
 
     function playGame(guess){
       const randomNumber = Math.random();
