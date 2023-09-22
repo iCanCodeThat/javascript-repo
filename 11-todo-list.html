@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>11 - Todo List</title>
+  </head>
+  <body>
+
+    <!---------------- Todo List 1 --------------------->
+    
+    <p>Todo List Practice 1</p>
+    <input type="text" class="js-todo-input" placeholder="Todo name">
+    <button onclick="
+      addTodo();
+    ">Add</button>
+
+    <!---------------- Todo List 2 --------------------->
+
+    <p>Todo List Practice 2</p>
+    <input type="text" class="js-todo-input-2" placeholder="Todo name">
+    <button onclick="
+      addTodo2();
+    ">Add</button>
+    <div class="js-result"></div>
+
+    <script>
+      /***************************  Todo List 1 **********************/
+      const todoName = [];
+
+      function addTodo(){
+        const inputElement = document.querySelector('.js-todo-input').value;
+
+        todoName.push(inputElement);
+        console.log(todoName);
+
+        //  to reset the text when we hit the button
+        document.querySelector('.js-todo-input').value = '';
+        
+      }
+
+      /***************************  Todo List 2 **********************/
+      //  Steps
+      //  - Loop through an array
+      //  - Create some HTMl code for each todo
+      //  - Put the HTML on the web page using dom
+
+      const todoList = [];
+
+      renderTodoList();
+
+      function renderTodoList(){
+        let todoResultHTML = '';
+
+        for(let i = 0; i < todoList.length; i++){ // Loop through each index of the array
+          const todo = todoList[i];
+          const html = `<p>${todo}</p>`;
+          todoResultHTML += html;
+        }
+        //console.log(todoResultHTML);
+
+        document.querySelector('.js-result')
+          .innerHTML = todoResultHTML;
+      }
+
+
+      function addTodo2(){
+        const inputElement2 = document.querySelector('.js-todo-input-2');
+
+        const name2 = inputElement2.value;
+
+        todoList.push(name2);
+        console.log(todoList);
+
+        //  to reset the text when we hit the button
+        inputElement2.value = '';
+
+        renderTodoList();
+        
+      }
+
+      
+      
+    </script>
+  </body>
+</html>

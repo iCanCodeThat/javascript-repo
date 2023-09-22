@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>11 - Arrays and Loops</title>
+  </head>
+  <body>
+
+    <script>
+      /************************ Array ************************/
+      console.log('--------------------- Array --------------------');
+      //  -   another type of value
+      //  -   represents a list of other values
+      //  -   we can put any type of value inside an array
+      //  -   array itself is also a value (we can save it in a variable or another array)
+      //  -   array is an object (a special type of object)
+      //  -   arrays have properties and methods
+
+      const myArray1 = [10, 20, 30];
+      console.log(myArray1);
+
+      //  to get speciffic values from array
+      myArray1[0];  // 0 means the 1st value. this is called "index", the position in the array
+      console.log(myArray1[0]);
+
+      //  change a value in array
+      myArray1[0] = 99;
+      console.log(myArray1); 
+
+      //  we can put any value
+      const myArray2 = [1, 'hello', true, {
+        name: 'socks'
+      }, [1, 2, 3]];
+      console.log(myArray2);
+      console.log(typeof [1, 2]);
+
+      //  this will check if the value is an array
+      console.log(Array.isArray([1, 2])); 
+
+      //  Property
+      console.log(myArray1.length); //  .length will tell how many values are inside the array
+
+      //  Method
+      //  - push() => adds a value to the end of the array
+      myArray1.push(200);
+      console.log(myArray1);
+
+      //  - splice() => removes a value from an array
+      //    - takes 2 numbers
+      //    - 1. index we want to remove
+      //    - 2. Number of values to remove
+      myArray1.splice(3, 1);
+      console.log(myArray1);
+
+
+      console.log('--------------------- Loop --------------------');
+      /************************ Loop ************************/
+      //  -   let us run some code over and over again
+      //  -   loops create a scope
+      //        - any variable that we create between the curly brackets will only exist inside the curly brackets
+
+      //  While Loop
+      //  -   Non-Standard Loop
+      //  -   while a condition is true, it will keep running the code over and over again and if the condition is false, it will stop the code and go to the next line
+
+      //  loop variable
+      let i = 0;
+
+      //  we run this code 10 times also called as "iteration"
+      //  Loop condition
+      while(i <= 10){ //  if true => loop will keep going ; if fales => loop will stop
+        console.log(i);
+        //  i += 1;       //<= Loop Body
+        //  i = i + 1;
+        i++;  //  <= increment step = makes sure that the loops end at some point
+        
+      }
+
+
+      //  For Loop
+      //  -   for(loop variable; loop condition; increment step)
+      //  -   Standard loop
+      for(i = 1; i <= 5; i++){
+        console.log(i);
+      }
+
+      //  Non-Standard Loop
+      //  - without increment step
+      //  - ex. lets say we want to generate a random numbers until one that's at least o.5
+
+      let randomNum = 0;
+
+      while(randomNum < 0.5){
+
+        randomNum = Math.random();
+
+      }
+      console.log(randomNum);
+
+
+      //  Looping Through an Array
+      //  -   Go through each value of an array one by one
+      //  -   and do something with each value
+
+      const todoList = [
+        'make dinner',  //  index 0
+        'wash dishes',  //  index 1
+        'watch yt'      //  index 2
+      ];
+
+      //  create and run loop
+      //  loops gonna count frm 0 to the last index in the aray
+      //  the last index in an array will be the number of value - 1 or the (array.length - 1)
+      
+
+       // let i = shorter than index   // index < todoList.length = shortcut
+      for(let index = 0; index <= todoList.length - 1; index++){  // loop through each index in the array
+
+        // this will take whatever the index variable is and access that index in the array
+        //  or get the value at each index
+        const value = todoList[index]; 
+
+        console.log(value); //display each value
+      }
+
+
+      //  Accumulator Pattern
+      //  -   create a variable to store the result
+      //  -   Loop through the array and update the result
+      //  -   we can use different type of values to accumulate the result.
+
+      //  Problem: lets say we have an array of numbers
+      //           -  ex [1, 2, 3]
+      //           -  How to we calculate the total?
+
+      //  EXAMPLE 1
+      const nums = [1, 1, 3];
+
+      //  accumulator variable
+      let result = 0; // store the result
+
+      for(let i = 0; i < nums.length; i++){ //  Loop through the array
+        const num = nums[i];
+
+        result += num;  // update the result
+        
+      }
+      console.log(result);  // display 5
+
+
+
+      //  EXAMPLE 2
+      //  create a copy of the array with each number doubled
+      const nums2 = [1,1,3];
+      let result2 = [];
+      
+      for(let i = 0; i < nums2.length; i++){
+        const num2 = nums2[i];
+        result2.push(num2 * 2);  //  push() to add a value in the array
+        
+      }
+      console.log(result2); // display doubled value
+
+      
+
+    </script>
+
+  </body>
+</html>
