@@ -22,7 +22,11 @@
     <button onclick="
       addTodo2();
     ">Add</button>
-    <div class="js-result"></div>
+
+    <!--instead of paragraph. we use div element to contain paragraph-->
+    <!--in html, we cannot have a paragraph inside another paragraph-->
+    <div class="js-result"></div> 
+
 
     <script>
       /***************************  Todo List 1 **********************/
@@ -45,22 +49,23 @@
       //  - Create some HTMl code for each todo
       //  - Put the HTML on the web page using dom
 
-      const todoList = [];
+      const todoList = [];  
 
-      renderTodoList();
+      renderTodoList(); //  call this function
 
+      //  we use function to make our code cleaner and to update the html on the page by running this function again everytime we add a Todo or the addTodo();
       function renderTodoList(){
-        let todoResultHTML = '';
+        let todoResultHTML = '';  //  store the result or the html here
 
         for(let i = 0; i < todoList.length; i++){ // Loop through each index of the array
-          const todo = todoList[i];
-          const html = `<p>${todo}</p>`;
-          todoResultHTML += html;
+          const todo = todoList[i]; //  get the string to each index
+          const html = `<p>${todo}</p>`;  //  for each todo, we create html code  
+          todoResultHTML += html; //  using accumulator pattern to combine all html code and put it on the web page
         }
         //console.log(todoResultHTML);
 
         document.querySelector('.js-result')
-          .innerHTML = todoResultHTML;
+          .innerHTML = todoResultHTML;    //  using dom we put it on the page
       }
 
 
@@ -75,12 +80,9 @@
         //  to reset the text when we hit the button
         inputElement2.value = '';
 
+        //  everytime we add a todo to the list, we are also gonna display the list again
         renderTodoList();
-        
       }
-
-      
-      
     </script>
   </body>
 </html>
