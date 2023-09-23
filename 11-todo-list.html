@@ -10,7 +10,9 @@
     <!---------------- Todo List 1 --------------------->
     
     <p>Todo List Practice 1</p>
-    <input type="text" class="js-todo-input" placeholder="Todo name">
+    <input type="text" class="js-todo-input" placeholder="Todo name" onkeypress="
+      onKeyHandle(event);
+    ">
     <button onclick="
       addTodo();
     ">Add</button>
@@ -82,6 +84,14 @@
 
         //  everytime we add a todo to the list, we are also gonna display the list again
         renderTodoList();
+      }
+
+
+      // If we click enter it will also add and display the value we specified in the array
+      function onKeyHandle(event){
+        if(event.key === 'Enter'){
+          addTodo();
+        }
       }
     </script>
   </body>
