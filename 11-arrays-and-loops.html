@@ -162,6 +162,135 @@
       }
       console.log(result2); // display doubled value
 
+
+
+
+      /****************** Arrays and Loops Part 2 **************/
+      //  More Details of the Arrays and Loops
+
+      console.log('------------ Arrays are References -------------')
+      /*************** Arrays are also References ***************/
+
+      //  this variable doesnt the values 1, 2, 3
+      //  the array is saved somewhere in the computer's memory
+      //  the variable only contains a reference that points to where the array(value) is in the memory.
+      const array1 = [1, 2, 3];
+
+      //  copy of the variable
+      //  only contains the copy of the reference
+      //  both variables are pointing to the same array
+      const array2 = array1; 
+
+      array2.push(4);
+      console.log(array1);
+      console.log(array2);
+
+      //  To avoid this behavior
+      //  we can create a copy of the values in the array using slice()
+
+      //  Slice Example
+      const array3 = [6, 7, 8, 9];
+
+      //  this will make a copy of values in the array1
+      //  array3 and array4 points to two different
+      const array4 = array1.slice();
+
+      array4.push(10);
+
+      console.log(array3);
+      console.log(array4);
+      
+      console.log('------------ Shortcut: Destructuring -------------')
+      /*************** Shortcut: Destructuring ***************/
+
+      //  let say we want to get the 1st and 3nd value out of this array
+
+      //  this will take the 1st value to the first variable and 2nd value to the second variable
+      const [firstValue, secondValue] = [11,12,13];
+      console.log(firstValue);
+      console.log(secondValue);
+
+      console.log('------------ More Details about Loops -------------')
+      /*************** More Details about Loops ***************/
+      console.log('------------ Break -------------')
+      //  break
+      //  -   lets us exit a loop early
+      
+      //  Example 1
+      //  loop that counts from 1-10
+      //  when i = 8, loop shoud stop early
+      for(let i = 1; i <= 10; i ++) { // count from 1 to t0 10
+        console.log(i);
+        if(i === 8){
+          break;
+        }
+      }
+
+      console.log('------------ Continue -------------')
+      //  continue
+      //  -   lets us skip 1 iteration of the loop or one run
+
+      //  Example 1
+      //  let say we want ti skip number 3
+      for(let i = 1; i <= 10; i ++) { // count from 1 to t0 10
+        
+        if(i === 3) {
+          continue; //  this will skip the rest of the code and go back up to the top and do i = 4;
+        }
+        console.log(i);
+        
+        if(i === 8){
+          break;
+        }
+      }
+
+      //  skip a number if it is divisible by 3
+      //  divisible by 3 = can be divided evenly into 3
+      for(let i = 1; i <= 15; i++){
+        if(i % 3 === 0){ // if i === 0, skip the number ex. 3 and 6
+          continue;
+        }
+        console.log(i);
+      }
+
+      //  count 1-10 using while loop
+      //  and then lets skip numbers that are divisible by 3
+      let w = 1;
+      while(w <= 10){
+        if(w % 3 === 0){
+          w++;    //  lets add the increment step here to avoid skipping the increment step when continue is initiated
+          continue;
+        }
+        console.log(w);
+        w++
+        
+      }
+
+      console.log('------------ Using Loops with Functions -------------')
+      /*************** Using Loops with Functions ***************/
+
+      function doubleArray(nums3){
+        //const nums3 = [1,1,3];
+        const result3 = [];
+        
+        for(let i = 0; i < nums3.length; i++){
+
+          const num3 = nums3[i];
+
+          if(num3 === 0){ //  stop the loop early if there is a 0
+            break;
+            //return result; // another way of breaking out a loop when inside a function
+          }
+          
+          result3.push(num3 * 2);  //  push() to add a value (doubled value) in the array
+          
+          
+        }
+        return result3; // display doubled value
+      }
+      console.log(doubleArray([1,1,3]));
+      console.log(doubleArray([4,5,6]));
+      console.log(doubleArray([3,4,0,6]));
       
 
     </script>
