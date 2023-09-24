@@ -126,12 +126,18 @@
 
         const name2 = inputElement2.value;
         const date = dateInputElement.value;
+        if(!name2 || !date){
+          alert('Error: Please Specify a Value');
+          return;
+        } else {
+          todoList.push({
+            name: name2,
+            dueDate: date
+          });
+        }
 
         //  instead of just a name, we are going to add an object
-        todoList.push({
-          name: name2,
-          dueDate: date
-        });
+        
         
         console.log(todoList);
 

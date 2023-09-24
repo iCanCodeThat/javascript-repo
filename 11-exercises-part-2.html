@@ -9,6 +9,11 @@
     <script>
       /****************** Exercises 11 0, p, q *****************/
 
+      //  Exercise O
+      //  array of strings and loop over the array, and check if the
+      //  the string 'search' is inside the array. console.log the 
+      //  index of 'search', if there is no 'search' console.log 
+      //  '-1';
       let words = ['hello', 'world', 'search', 'good', 'search'];
 
       // Set the index to -1 at the start (so we'll assume
@@ -26,7 +31,9 @@
 
       console.log(index);
 
-    
+      //  Exercise P (Modified Exercise O)
+      //  if 'not' appears multiple times in the array, it will console.log
+      //  the index of the first appearance using break;
         words = ['not', 'found', 'not', 'now'];
         index = -1;
 
@@ -40,74 +47,106 @@
         console.log(index);
 
 
-        function findIndex(index, word){
-          let result = [];
-          
-          for(let i = 0; i<index.length; i++){
-            if(index[i] === word){
-              return i
-            } else {
-              return -1;
+        //  Exercise Q
+        //  function that searches an array for a string in a word parameter
+        //  and returns the index of the first appearance of the string
+        //  if it dont exist in the array, return -1
+
+        function findIndex(array, word) {
+          for (let i = 0; i < array.length; i++) {
+            if (array[i] === word) {
+              // Instead of creating an accumulator
+              // variable and updating it in the loop,
+              // we can just return i directly, when
+              // we find it since this is a function.
+              return i;
             }
           }
+  
+          // If the function has not returned by now,
+          // logically that means the word must not
+          // exist in the array, so we'll return -1.
+          return -1;
         }
-        console.log(findIndex(['green', 'red', 'blue'], 'yellow'));
+        console.log(findIndex(['green', 'red', 'blue'], 'red'));
 
-        /*
-          function removeEgg(foods){
-          const result = [];
+        // Exercise R
+        //  function that takes an array of string and returns an array
+        //  where the string 'egg' is removed.
 
-          
+        function removeEgg1(foods){
+        const result = [];
 
-            for(let i = 0; i < foods.length; i++){
+          for(let i = 0; i < foods.length; i++){
+            
+            if(foods[i] === 'egg'){
+              continue;
               
-              if(foods[i] === 'egg'){
-                continue;
-                
-              }
-              
-              
-              result.push(foods[i]);
             }
-
-            return result;
-
-
+            result.push(foods[i]);
           }
-          console.log(removeEgg(['egg', 'apple']));
+
+          return result;
+
+
+        }
+        console.log(removeEgg1(['egg', 'apple','egg','grapes']));
         
-        */
-
-        /*
-          function removeEgg(foods) {
-            const result = [];
-            let eggsRemoved = 0;
-    
-            for (let i = 0; i < foods.length; i++) {
-              // Only skip 'egg' if we removed less than 2
-              // of them so far.
-              if (foods[i] === 'egg' && eggsRemoved < 2) {
-                // Update the number of 'egg' we have removed.
-                // This must be done before continue, otherwise,
-                // doing continue first will just skip this code.
-                eggsRemoved++;
-                continue;
-              }
-    
-              result.push(foods[i]);
+        //  Exervise S (Updated Exercise R)
+        //  only removes the first 2 eggs from the array;
+        function removeEgg2(foods) {
+          const result = [];
+          let eggsRemoved = 0;
+  
+          for (let i = 0; i < foods.length; i++) {
+            // Only skip 'egg' if we removed less than 2
+            // of them so far.
+            if (foods[i] === 'egg' && eggsRemoved < 2) {
+              // Update the number of 'egg' we have removed.
+              // This must be done before continue, otherwise,
+              // doing continue first will just skip this code.
+              eggsRemoved++;
+              continue;
             }
-    
-            return result.reverse();
+  
+            result.push(foods[i]);
           }
-    
-          console.log(removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']));
+  
+          return result;
+        }
+  
+        console.log(removeEgg2(['egg', 'apple', 'egg', 'egg', 'ham']));
 
-        */
-
-        function removeEgg(foods) {
+        //  Exercise T (Updated Exercise S)
+        // using reverse(), only remove the last 2 from the array
+        function removeEgg3(foods) {
+          // To remove the last 2 'egg', reverse the array first.
+          const reversedFoods = foods.reverse();
+  
+          const result = [];
+          let eggsRemoved = 0;
+  
+          for (let i = 0; i < reversedFoods.length; i++) {
+            if (foods[i] === 'egg' && eggsRemoved < 2) {
+              eggsRemoved++;
+              continue;
+            }
+  
+            result.push(foods[i]);
+          }
+  
+          // At the end, remember to .reverse() back the result.
+          return result.reverse();
+        }
+  
+        console.log(removeEgg3(['egg', 'apple', 'egg', 'egg', 'ham']));
+        
+        //  Exercise U  (Updated Exercise T)
+        //  update the code so the function does not modify the original array using slice()
+        function removeEgg(foods4) {
           // To prevent modifying the original array, we
           // just need to create a copy using .slice()
-          const foodsCopy = foods.slice();
+          const foodsCopy = foods4.slice();
           const reversedFoods = foodsCopy.reverse();
   
           // We can also write the code in 1 line since
@@ -122,28 +161,35 @@
           let eggsRemoved = 0;
   
           for (let i = 0; i < reversedFoods.length; i++) {
-            if (foods[i] === 'egg' && eggsRemoved < 2) {
+            if (foods4[i] === 'egg' && eggsRemoved < 2) {
               eggsRemoved++;
               continue;
             }
   
-            result.push(foods[i]);
+            result.push(foods4[i]);
           }
   
           return result.reverse();
         }
   
-        const foods = ['egg', 'apple', 'egg', 'egg', 'ham'];
-        console.log(removeEgg(foods));
-        console.log(foods);
+        const foods4 = ['egg', 'apple', 'egg', 'egg', 'ham'];
+        console.log(removeEgg(foods4));
+        console.log(foods4);
 
 
+        //  Exercise V FizzBuzz
+        //  loop that displays 1-30, if it is divisible by 3, display
+        //  'Fizz'
+        //  if its divisible by 5
+        //  'Buzz'
+        //  if its divisible by 3 and 5
+        //  'FizzBuzz'
         for(let i = 1; i<=30; i++){
           if(i % 3 === 0 && i %5===0){
             console.log('FuzzBuzz');
             continue;
           } else if(i % 3 === 0 ){
-            console.log('Fuzz');
+            console.log('Fizz');
             continue;
           } else if(i % 5 === 0){
             console.log('Buzz');
@@ -152,14 +198,14 @@
           console.log(i);
         }
         
-
-
-
+        //  Exercise W
+        //  function unique that takes an array of string and returns an array where each string only appears once
 
         function findIndex2(array, word) {
+          const result = [];
           for (let i = 0; i < array.length; i++) {
             if (array[i] === word) {
-              return array[i];
+              return i;
             }
             
           }
