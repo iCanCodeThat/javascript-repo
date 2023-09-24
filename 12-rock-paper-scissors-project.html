@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>12 - Rock Paper Scissors Game</title>
+    <link rel="stylesheet" href="12-css-project/12-rock-paper-scissors-project.css">
+  </head>
+  <body>
+    
+    <!--Title-->
+    <p class="css-title">Rock Paper Scissors Game</p>
+
+    <!---------------------Rock Button----------------->
+    <button class="css-emoji-button" onclick="
+      playGame('rock');
+    "><img class="css-rock-emoji" src="10-image/rock-emoji.png" alt=""></button>
+
+    <!----------------------Paper Button------------------>
+    <button class="css-emoji-button" onclick="
+      playGame('paper');
+    "><img class="css-paper-emoji" src="10-image/paper-emoji.png" alt=""></button>
+      
+    <!---------------------Scissors Button---------------->
+    <button class="css-emoji-button" onclick="
+      //  This will save scissors into playerMove
+      //  We can use playerMove just like a variable
+      playGame('scissors');
+    "><img class="css-scissors-emoji" src="10-image/scissors-emoji.png" alt=""></button>
+
+    <!---------------------Scores---------------->
+    <p class="js-result css-result"></p>
+    <p class="js-move"></p>
+    <p class="js-score css-score"></p>
+
+    <!---------------------Reset Button---------------->
+    <button class="css-reset-show-button" onclick="
+      
+        score.wins = 0;
+        score.losses = 0;
+        score.tie = 0;
+      
+      localStorage.removeItem('score');
+
+      //After we reset the score, we're gonna call the function update score to reset its value
+      updateScoreElement();
+      update
+    ">Reset button</button>
+
+    <button class="css-reset-show-button" onclick="
+      alert(`Current Score
+
+Wins: ${score.wins} | Losses: ${score.losses} | Tie: ${score.tie}`);
+    ">Show Score</button>
+
+    <button class="js-auto-play css-reset-show-button" onclick="
+      autoPlay();
+    ">Auto Play</button>
+  
+    <!---------------------JAVASCRIPT---------------->
+    <script src="12-js-project/12-rock-paper-scissors-project.js"></script>
+  </body>
+</html>
