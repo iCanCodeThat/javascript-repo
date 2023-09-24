@@ -14,6 +14,9 @@
       nums[2] = 99;
       console.log(nums);
 
+      //  Exercise b
+      //  function that takes an array and return the last value 
+      //  in the array
       function getLastValue(array){
         const lastindex = array.length-1;
         return array[lastindex];
@@ -21,6 +24,9 @@
       console.log(getLastValue([1,20,22,24,5]));
       console.log(getLastValue(['hi','hello', 'good']));
 
+      //  Exercise c
+      // function that takes an array and returns an array where 
+      //  the first and last values are swapped or switched.
       function arraySwap(arrays){
         const indexLast = arrays.length-1;
         const last = arrays[indexLast];
@@ -32,19 +38,25 @@
         return arrays;
 
       }
+      //  the output is 1 will be placed to the last index and 5 is replaced to the first index.
       console.log(arraySwap([1,20,22,24,5]));
 
       console.log('------------ Exercise 11 d,e,f,g,h  ---------------');
       /******************** Exercise 11 d,e,f,g,h ******************/
-     
+      //  Exercise D
+      //  for loop that counts from 0 to 10, but it counts by 2
       for(let i = 0; i <= 10; i += 2){
-        console.log(i);
+        console.log(i); //  the output is 0, 2, 4, 6, 8, 10
       }
 
+      //  Exercise E
+      //  for loop that count down from 5 to 0
       for(let i = 5; i >= 0; i--){
-        console.log(i);
+        console.log(i); //  output is 5, 4, 3, 2, 1, 0
       }
 
+      //  Exercise F
+      //  Do the exercse D and E but using while loop
       let i = 0;
       while(i <= 10){
         console.log(i);
@@ -58,13 +70,18 @@
       }
 
       console.log('---------------------------');
+
+      //  Exercise G
+      //  for loop that takes an array of numbers and creates a new array where each number is increased by 1
       const loopArray = [1,2,3];
       
       for(let i = 0; i < loopArray.length; i++){
-        const myArr = loopArray[i] + 1;
-        console.log(myArr);
+        const myArr = loopArray[i] + 1; // this will add 1 to each of the array
+        console.log(myArr); //  output os 2, 3, 4
       }
 
+      //  Exercise H
+      //  function that takes an array of numbers and returns an array where each number is increased by 1.
       function addOne(array){
         const result = [];
         for(let i = 0; i < array.length; i++){
@@ -72,10 +89,12 @@
         }
         return result
       }
-      console.log(addOne([5,6,7]));
+      console.log(addOne([5,6,7])); //  output is 6, 7, 8
 
       console.log('------------ Exercise 11 i,j,k  ---------------');
 
+      //  Exercise I
+      //  function that takes an array of numbers and returns an array where each number is increased by 'num'.
       function addNum(array, num){
         const result = [];
         for(let i = 0; i < array.length; i++){
@@ -88,7 +107,8 @@
       console.log(addNum([-2,-1,0,99],2));
 
       /////////////////////////////////////////////
-
+      //  Exercise J
+      //  function that takes 2 arrays of numbers and adds each number in the arrays together.
       function addArrays(array1, array2){
         const result = [];
         for(let i = 0; i < array1.length; i++){
@@ -101,9 +121,10 @@
       console.log(addArrays([1,2,3], [4,5,6]));
 
       /////////////////////////////////////////////
-
+      //  Exercise K
+      //  function that takes an array of numbers and returns how many numbers in the array are greater than 0 or a positive number.
       function countPositive(nums){
-        let result = [];
+        //let result = [];
         for(let i = 0; i < nums.length; i++){
           if(nums[i] > 0){
              return nums[i];
@@ -152,6 +173,11 @@
 
       */
 
+
+      //  Exercise L and M
+      //  function that takes an array of number and return an object with the minimum and maximum numbers in the array
+      //  update the code where if minMax([]) must output null and 
+      //  minMax([3]) should output its value to both property
       function minMax(nums) {
         // We'll set the starting values of min and max
         // to null this time.
@@ -183,12 +209,15 @@
         return result;
       }
 
-      console.log(minMax([1, -3, 5]));
-      console.log(minMax([-2, 3, -5, 7, 10]));
+      console.log(minMax([1, -3, 5]));  //  max = 5 and min  = -3
+      console.log(minMax([-2, 3, -5, 7, 10]));  //  max = 10, min = -5
 
-      console.log(minMax([]));
-      console.log(minMax([3]));
+      console.log(minMax([]));  // output the default value which is null
+      console.log(minMax([3])); //  set both max and min to 3
 
+
+      //  Exercise N
+      //  function that takes an array of strings and returns an object with hoe many times each string appeared.
 
       function countWords(words) {
         const result = {}; // to return an object not an array
@@ -204,7 +233,7 @@
             result[word] = 1;
             
           } else {
-            result[word]++;
+            result[word]++; // increments the count if the property already appeared in the result
           }
         }
 
