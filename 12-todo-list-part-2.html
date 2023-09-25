@@ -62,9 +62,7 @@
     ">
 
       <!--Button-->
-      <button class="css-button" onclick="
-        addTodo2();
-      ">Add</button>
+      <button class="css-button js-button">Add</button>
     </div>
 
     <!--instead of paragraph. we use div element to contain paragraph-->
@@ -109,10 +107,7 @@
           const html = `    
           <div>${name}</div> <!-- instead of todoObject, we insert the name -->
           <div>${dueDate}</div>
-            <button onclick="
-              todoList.splice(${index},1); //we use splice() to remove a value inside the array 
-              renderTodoList(); // to display the list again
-            " class = "css-delete-button">Delete</button>    
+            <button class = "css-delete-button js-delete-button">Delete</button>    
           `;  
           todoResultHTML += html; //  using accumulator pattern to combine all html code and put it on the web page
         });
@@ -120,6 +115,25 @@
 
         document.querySelector('.js-result')
           .innerHTML = todoResultHTML;    //  using dom we put it on the page
+
+        //  Event Listener
+        //  we need to put Delete button on the page
+        //  we use querySelectorAll to give us all the elements in the page
+        document.querySelectorAll('.js-delete-button')
+          .forEach((deleteButton, index)=>{
+            deleteButton.addEventListener('click', ()=>{
+              //  console.log(index); // Closure
+
+              todoList.splice(index,1); //we use splice() to remove a value inside the array 
+              renderTodoList(); // to display the list again
+            });
+          }); //  we're gonna for each this button because it is just like an array when we console.log it
+
+
+          //  as soon as we end for each loop above
+          //  index doesnt exist anymore
+          //  console.log(index);
+
       }
 
 
@@ -151,6 +165,14 @@
           addTodo2();
         }
       }
+
+      //  Event Listener
+      document.querySelector('.js-button')
+        .addEventListener('click', () =>{
+          addTodo2();
+        });
+
+      
     </script>
   </body>
 </html>
