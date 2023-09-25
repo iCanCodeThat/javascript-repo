@@ -147,15 +147,60 @@ function pickComputerMove(){
   return computerMove; // This will take whatever value is saved inside this variable and return it out of the function.
 }
 
-/*****************  AUTOPLAY THE GAME **************/
+/*********************  Add Event Listener *************************/
+//  Undefined COde
+//document.querySelector('.js-rock-button')
+//  .addEventListener('click', playGame('rock'));
+
+//  event listener for Rock
+document.querySelector('.js-rock-button')
+  .addEventListener('click', ()=>{
+    playGame('rock');
+  });
+
+//  event listener for Paper
+document.querySelector('.js-paper-button')
+  .addEventListener('click', ()=>{
+    playGame('paper');
+  });
+
+//  event listener for Scissors
+document.querySelector('.js-scissors-button')
+.addEventListener('click', ()=>{
+  playGame('scissors');
+});
+
+//  Event Listener using KeyDown
+//  -   we will be using the body so that whenever we type anywhere on the page, we can run some code
+
+document.body.addEventListener('keydown', (event)=>{
+  if(event.key === 'r'){
+    playGame('rock');
+  } else if(event.key === 'p'){
+    playGame('paper');
+  } else if(event.key === 's'){
+    playGame('scissors');
+  } else {
+    alert('Invalid Key Pressed!');
+  }
+});
+
+/**********************  AUTOPLAY THE GAME **************************/
 
 //  variable to keep track if whether or not we are playing
 let isAutoPlaying = false;
 let intervalId;
 
+
+//  const autoPlay = ()=>{
+
+//  }
+//  no need to switch it to arrow function because
+//  -   this is easier to read
+//  -   the function syntax enables us to hoist (we can call this function before we create it, no orders) it.
 function autoPlay(){
   if(!isAutoPlaying) { // will flip it to true
-    intervalId =  setInterval(function(){
+    intervalId =  setInterval(() =>{  //  switched to Arrow Function
       const playMove = pickComputerMove();
       playGame(playMove);
     }, 2000);

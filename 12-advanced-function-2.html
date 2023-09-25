@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>12 Advanced Function 2</title>
+  </head>
+  <body>
+
+    <p>.addEventListener</p>
+    <button class="js-button" onclick="
+
+    ">Click</button>
+
+    <script>
+      console.log('-------------- Advanced Function 2 -----------------')
+      /********************** Arrow Function ******************/
+
+      //  -   mostly works the same way as a regular function
+      //  -   parameters works the same way in arrow function just like in the regular function
+
+      //  Difference between Arrow Function and Regular Function
+      //  -   Arrow Function have shortcuts
+
+      //  Arrow Function
+      const arrowFunction = (param) => {
+        return 5;
+      }
+
+
+      //  Regular Function
+      const regularFunction = function(param){
+        return 5;
+      }
+      regularFunction();
+
+
+      /*
+
+        1ST SHORTCUT
+
+        When an Arrow Function only have 1 parameter, the round brackets
+        are optional.
+
+        const oneParam = (param) => {
+          console.log(param + 1);
+        }
+      */
+
+      const oneParam = param => {
+        console.log(param + 1);
+      }
+      oneParam(2);  // display 2 + 1 = 3
+
+
+      /*
+      
+        2ND SHORTCUT
+
+        When an Arrow Function only has one line of code inside
+
+        const oneLine = () => {
+          return 2 + 3;
+        }
+      
+      */
+      const oneLine = () => 2 + 3;
+      console.log(oneLine());
+
+
+      console.log('-------------- Practical Example -----------------');
+      /********************** Practical Example ******************/
+
+
+      [
+        'make dinner',  //take the 1st value, save it in the parameter then run the function so on and so fourth and will also save the index for 0
+        'wash dishes',
+        'watch yt'
+      ].forEach((value, index)=>{ //  passing a function into another function
+
+        //  better to use a regular for loop to use 'break;'
+
+        if(value === 'wash dishes'){  // skipped wash dishes
+          return;
+        }
+
+        console.log(index); // will save the position of each value in the array here
+        console.log(value); 
+
+      });
+
+
+      console.log('-------------- Arrow Function inside Object -----------------');
+      /********************** Arrow Function inside Object ******************/
+
+      const object1 = {
+        /*
+          method: () => {
+
+          };
+        */
+        
+        //  easier to read
+        //  recommended
+        method () {
+
+        }
+      };
+
+
+      //  addEventListener
+      //  -   lets us rin some code when we interact with the element.
+      //  -   sort of doing the same thing as onclick=""
+      //  has two parameters
+      //  -   1. event (what type of interaction we want to listen for)
+      //  -   2. function we want to run
+
+      //  Advantage
+      //  -   lets us add multiple event listener for an event
+      //  -   we can remove an eventListener using .removeEventListener()
+      
+      //  Note
+      //  -   best practice to use .addEventListener instead of onclick=""
+
+      const buttonElem = document.querySelector('.js-button');
+
+      //  when we click the button, both eventListener will run the function
+
+      //  so we need to save the function we want to be remove in a variable
+      const eventListener = () => {
+        console.log('Click');
+      }
+      buttonElem.addEventListener('click', eventListener);
+
+      //  remove event listener 
+      //  we cant just type a copy of the function to remove it
+      //  we need to use the exact function inside the remove listener
+      buttonElem.removeEventListener('click', eventListener);
+
+      buttonElem.addEventListener('click', () => {
+        console.log('Click2');
+      });
+
+     
+      
+    </script>
+  </body>
+</html>
