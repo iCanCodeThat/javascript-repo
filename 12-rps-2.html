@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>12 - Rock Paper Scissors Game</title>
+    <link rel="stylesheet" href="12-css-project/12-r-2.css">
+  </head>
+  <body>
+    
+    <!--Title-->
+    <p class="css-title">Rock Paper Scissors Game</p>
+
+    <!---------------------Rock Button----------------->
+    <button class="css-emoji-button js-rock-button"><img class="css-rock-emoji" src="10-image/rock-emoji.png" alt=""></button>
+
+    <!----------------------Paper Button------------------>
+    <button class="css-emoji-button js-paper-button"><img class="css-paper-emoji" src="10-image/paper-emoji.png" alt=""></button>
+      
+    <!---------------------Scissors Button---------------->
+    <button class="css-emoji-button js-scissors-button"><img class="css-scissors-emoji" src="10-image/scissors-emoji.png" alt=""></button>
+
+    <!---------------------Scores---------------->
+    <p class="js-result css-result"></p>
+    <p class="js-move"></p>
+    <p class="js-score css-score"></p>
+
+    <!---------------------Reset Button---------------->
+    <button class="css-reset-show-button js-reset-button">Reset button</button>
+
+    <!---------------------Show Score Button---------------->
+    <button class="css-reset-show-button" onclick="
+      alert(`Current Score
+
+Wins: ${score.wins} | Losses: ${score.losses} | Tie: ${score.tie}`);
+    ">Show Score</button>
+
+    <!---------------------Auto Play Button---------------->
+    <button class="js-auto-play css-reset-show-button js-event-auto-button">Auto Play</button>
+
+    <div class="js-confirm"></div>
+  
+    <!---------------------JAVASCRIPT---------------->
+    <script src="12-js-project/12-r-2.js"></script>
+  </body>
+</html>
