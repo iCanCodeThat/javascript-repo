@@ -11,22 +11,9 @@
       solutions are possible so don't worry if
       your solution looks different.
     -->
-    <button onclick="
-      messages++;
-      displayNotification();
-    ">Add</button>
+    <button class="js-add-button">Add</button>
 
-    <button onclick="
-      if (messages > 0) {
-        messages--;
-
-        // If there are no new messages, stop displaying
-        // the notification in the tab.
-        if (messages === 0) {
-          stopNotification();
-        }
-      }
-    ">Remove</button>
+    <button class="js-remove-button">Remove</button>
 
     <script>
       let messages = 2;
@@ -52,7 +39,7 @@
 
         isDisplayingNotification = true;
 
-        intervalId = setInterval(function() {
+        intervalId = setInterval(() => {
           if (document.title === 'App') {
             document.title = `(${messages}) New messages`;
           } else {
@@ -67,6 +54,26 @@
         clearInterval(intervalId);
         document.title = 'App';
       }
+
+
+      document.querySelector('.js-add-button')
+        .addEventListener('click', ()=>{
+          messages++;
+          displayNotification();
+        });
+
+        document.querySelector('.js-remove-button')
+        .addEventListener('click', ()=>{
+          if (messages > 0) {
+            messages--;
+    
+            // If there are no new messages, stop displaying
+            // the notification in the tab.
+            if (messages === 0) {
+              stopNotification();
+            }
+          }
+        });
     </script>
   </body>
 </html>

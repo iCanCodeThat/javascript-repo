@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>12 - Exercises</title>
+  </head>
+  <body>
+    <script>
+      //  Exervise J
+      const multiply = (a,b) => {
+        return a*b;
+      };
+      console.log(multiply(2,3));
+
+      //  Exervise K
+      const multiply2 = (a,b) => a*b;
+      console.log(multiply2(7,10));
+
+  
+      //  Exervise L
+      function countPositive(nums){
+
+        let positiveNum = 0;  //  its like an accumulator
+        nums.forEach((num) =>{
+          if(num > 0){  //  if each array inside the num has a number greater than 0
+            positiveNum++;  //  increment this variable
+          }
+        });
+        return positiveNum;
+
+      };
+
+      console.log(countPositive([1, -3, 5]));
+
+      //  Exervise M
+      function addNum(array, num){
+
+        let result = [];
+
+        array.map((arr)=>{
+           result.push(arr + num);
+        });
+        return result;
+      };
+      console.log(addNum([1,2,3], 2));
+
+      // Exercise N
+      function removeEgg(foods) {
+        // If food is 'egg', the inner function returns false
+        //   and the food is not included in the result.
+        // Otherwise, the inner function returns true
+        //   and the food is included in the result. 
+        return foods.filter((food) => food !== 'egg');
+      }
+
+      console.log(removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']));
+
+      //  Exercise O
+      function removeEggs(foods) {
+        const result = [];
+        let eggRemove = 0;
+        foods.filter((food) => {
+          if(food === 'egg'  && eggRemove < 2){
+            eggRemove++;
+            return;
+          }
+          result.push(food);
+        }); 
+        return result;
+      };
+
+      console.log(removeEggs(['egg', 'egg', 'apple', 'egg', 'egg', 'ham']));
+
+      /*   Exercise O
+        Works the same way as this line of code
+        
+        function removeEgg(foods) {
+          let eggsRemoved = 0;
+
+          return foods.filter((food) => {
+            // If the food is 'egg', we should return false
+            // but only if we haven't removed 2 eggs already.
+            if (food === 'egg' && eggsRemoved < 2) {
+              eggsRemoved++;
+              return false;
+            }
+
+            return true;
+          });
+        }
+
+        console.log(removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']));
+      */
+
+      //  Exercise P  
+      //  Go back to 12c - 12i and switch the code to arrow function
+
+
+      
+    </script>
+  </body>
+</html>
